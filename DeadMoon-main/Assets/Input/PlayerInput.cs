@@ -400,7 +400,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Inventory"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""d38dedad-4bc2-414c-a7f2-7be4081db457"",
                     ""expectedControlType"": """",
                     ""processors"": """",
