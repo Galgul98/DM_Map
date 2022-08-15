@@ -21,6 +21,7 @@ public class UImanager : MonoBehaviour
     void Update()
     {
         OnPause();
+        OnInventory();
     }
     public void OnPauseButton(InputAction.CallbackContext context)
     {
