@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using EZCameraShake;
 
 public class EnemyAi : MonoBehaviour
 {
@@ -133,6 +134,7 @@ public class EnemyAi : MonoBehaviour
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
             bloodSpllater.SetActive(true);
+            CameraShaker.Instance.ShakeOnce(4f,4f,0.1f,1f);
             StartCoroutine(bloodFeedback());
             Debug.Log("attacked player");
         }
