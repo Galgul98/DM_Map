@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 
 public class UImanager : MonoBehaviour
 {
+    private bool escButton;
     private bool pauseButton;
-    public GameObject PauseCanvas;
     private bool inventoryButton;
+    public GameObject PauseCanvas;
     public GameObject inventory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class UImanager : MonoBehaviour
     {
         OnPause();
         OnInventory();
+        OnEsc();
     }
     public void OnPauseButton(InputAction.CallbackContext context)
     {
@@ -87,6 +90,40 @@ public class UImanager : MonoBehaviour
         }
 
     }
+    public void OnEscButton(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            escButton = true;
+
+
+        }
+        if (context.canceled)
+        {
+            escButton = false;
+        }
+
+
+
+
+    }
+    public void OnEsc()
+    {
+        if (escButton)
+        {
+            inventory.SetActive(false);
+            PauseCanvas.SetActive(false);
+
+
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 1;
+
+            Debug.Log("i");
+        }
+
+    }
+
 
 
     public void MainMenu()

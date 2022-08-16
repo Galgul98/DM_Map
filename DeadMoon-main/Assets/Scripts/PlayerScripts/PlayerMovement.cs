@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     public float speed = 7f;
+    public float sprintSpeed;
     public float crouchSpeed;
     private bool isGrounded;
     public float gravity = -9.8f;
@@ -80,14 +81,14 @@ public class PlayerMovement : MonoBehaviour
     public void StartSprinting()
     {
         sprinting = true;
-        speed = 7f;
+        speed = sprintSpeed;
         
     }
 
     public void StopSprinting()
     {
         sprinting = false;
-        speed = 3.5f;
+        speed = 7f;
     }
 
 
