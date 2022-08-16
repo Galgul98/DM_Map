@@ -119,7 +119,7 @@ public class UImanager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 1;
 
-            Debug.Log("i");
+            Debug.Log("esc");
         }
 
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class OnOffLight : MonoBehaviour
 {
     public Light light;
-    
+    private bool onOff;
     public float MinTime;
     public float MaxTime;
     public float Timer;
@@ -20,18 +20,35 @@ public class OnOffLight : MonoBehaviour
     {
         OnOff();
     }
-  
+    IEnumerator OnOffdfasf()
+    {
+        
+        yield return new WaitForSeconds(1.0f);
+        onOff = true;
+    }
+    void onOfLight()
+    {
+        if (onOff)
+        {
+            light.enabled = !light.enabled;
+        }
+        else
+        {
+            this.gameObject.SetActive(true);
+        }
+    }
+ 
     void OnOff()
     {
         if (Timer > 0)
-          Timer -= Time.deltaTime;
+            Timer -= Time.deltaTime;
 
         if (Timer <= 0)
         {
             light.enabled = !light.enabled;
             Timer = Random.Range(MinTime, MaxTime);
         }
-       
+
 
 
 

@@ -32,6 +32,8 @@ public class EnemyAi : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    //UI
+    public GameObject bloodSpllater;
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -130,6 +132,8 @@ public class EnemyAi : MonoBehaviour
         {
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            bloodSpllater.SetActive(true);
+            StartCoroutine(bloodFeedback());
             Debug.Log("attacked player");
         }
     }
@@ -137,5 +141,12 @@ public class EnemyAi : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked=false;
+    }
+    IEnumerator bloodFeedback()
+    {
+
+        yield return new WaitForSeconds(1.0f);
+        bloodSpllater.SetActive(false);
+        Debug.Log("falseBlood");
     }
 }

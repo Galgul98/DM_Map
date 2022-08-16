@@ -6,7 +6,7 @@ public class ZombieStats : CharacterStats
 {
     [SerializeField] private int damage;
     public float attackSpeed;
-
+    public GameObject bloodSpllater;
     [SerializeField] private bool canAttack;
 
     private void Start()
@@ -18,7 +18,8 @@ public class ZombieStats : CharacterStats
     {
         //damaging function
         statsToDamage.TakeDamage(damage);
-
+       
+        
     }
 
     public override void TakeDamage(int damage)
@@ -31,7 +32,13 @@ public class ZombieStats : CharacterStats
         base.Die();
         
     }
+    IEnumerator bloodFeedback()
+    {
 
+        yield return new WaitForSeconds(1.0f);
+        bloodSpllater.SetActive(false);
+        Debug.Log("falseBlood");
+    }
     public override void InitVariables()
     {
         maxHealth = 60;
