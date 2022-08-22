@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private bool lerpCrouch;
     public bool crouching;
     public bool sprinting;
+    public Animator camAnim;
     
     public float crouchTimer;
     void Start()
@@ -82,13 +83,14 @@ public class PlayerMovement : MonoBehaviour
     {
         sprinting = true;
         speed = sprintSpeed;
-        
+        camAnim.SetTrigger("Run");
     }
 
     public void StopSprinting()
     {
         sprinting = false;
         speed = 7f;
+        camAnim.SetTrigger("Walk");
     }
 
 
