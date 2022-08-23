@@ -22,6 +22,13 @@ public class PlayerMovement : MonoBehaviour
     public PlayerInput playerInput;
     public PlayerInput.OnFootActions onFoot;
     public float crouchTimer;
+
+    //Footsteps Sounds
+    public AudioSource footstepsSound;
+    
+
+
+
     void Start()
     {
         playerInput = new PlayerInput();
@@ -45,11 +52,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 controller.height = Mathf.Lerp(controller.height, 1, p);
                 speed = crouchSpeed;
+                footstepsSound.pitch = 0.75f;
             }
             else
             {
                 controller.height = Mathf.Lerp(controller.height, 2, p);
                 speed = 7f;
+                footstepsSound.pitch = 1f;
             }
                
 
@@ -89,12 +98,16 @@ public class PlayerMovement : MonoBehaviour
             camAnim.ResetTrigger("Walk");
             camAnim.ResetTrigger("Run");
             isIdle = true;
+            footstepsSound.enabled = false;
+            
         }
         else
         {
             camAnim.SetTrigger("Walk");
             camAnim.ResetTrigger("Idle");
             camAnim.ResetTrigger("Run");
+            footstepsSound.enabled = true;
+            
         }
         if (sprinting)
         {
@@ -103,6 +116,8 @@ public class PlayerMovement : MonoBehaviour
             camAnim.ResetTrigger("Idle");
             isWalking = false;
             isIdle = false;
+            footstepsSound.enabled = true;
+            
         }
     
 
@@ -131,6 +146,7 @@ public class PlayerMovement : MonoBehaviour
     public void StartSprinting()
     {
         sprinting = true;
+        footstepsSound.pitch = 1.5f;
         speed = sprintSpeed;
        camAnim.SetTrigger("Run");
     }
@@ -138,6 +154,7 @@ public class PlayerMovement : MonoBehaviour
     public void StopSprinting()
     {
         sprinting = false;
+        footstepsSound.pitch = 1f;
         speed = 7f;
        // camAnim.SetTrigger("Walk");
     }
