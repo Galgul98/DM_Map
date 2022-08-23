@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,12 +16,21 @@ public class PlayerMovement : MonoBehaviour
     private bool lerpCrouch;
     public bool crouching;
     public bool sprinting;
+    public bool isWalking = false;
+    public bool isIdle = false;
     public Animator camAnim;
-    
+    public PlayerInput playerInput;
+    public PlayerInput.OnFootActions onFoot;
     public float crouchTimer;
     void Start()
     {
+        playerInput = new PlayerInput();
+        playerInput.Enable();
+        playerInput.OnFoot.Enable();
+        onFoot = playerInput.OnFoot;
+
         controller = GetComponent<CharacterController>();
+        camAnim.SetTrigger("Idle");
     }
 
     void Update()
@@ -51,17 +61,56 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void ProcessMove(Vector2 input)
+    public void ProcessMove(Vector3 input)
     {
+
+        Vector3 Direction = Vector3.zero;
         Vector3 moveDirection = Vector3.zero;
-        moveDirection.x = input.x;
-        moveDirection.z = input.y;
-        controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
-        playerVelocity.y += gravity * Time.deltaTime;
+            moveDirection.x = input.x;
+            moveDirection.z = input.y;
+            controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
+            playerVelocity.y += gravity * Time.deltaTime;
         if (isGrounded && playerVelocity.y < 0)
+        {
             playerVelocity.y = -2f;
+
+
+
+            
+
+
+
+
+        }
+        if(input.x == 0 && input.z == 0 && input.y == 0)
+        {
+            Debug.Log("Check12");
+            camAnim.SetTrigger("Idle");
+            camAnim.ResetTrigger("Walk");
+            camAnim.ResetTrigger("Run");
+            isIdle = true;
+        }
+        else
+        {
+            camAnim.SetTrigger("Walk");
+            camAnim.ResetTrigger("Idle");
+            camAnim.ResetTrigger("Run");
+        }
+        if (sprinting)
+        {
+            camAnim.SetTrigger("Run");
+            camAnim.ResetTrigger("Walk");
+            camAnim.ResetTrigger("Idle");
+            isWalking = false;
+            isIdle = false;
+        }
+    
+
         controller.Move(playerVelocity * Time.deltaTime);
-        //Debug.Log(playerVelocity.y);
+       
+      
+        
+        //Debug.Log(playerVelocity);
     }
 
     public void Jump()
@@ -83,14 +132,14 @@ public class PlayerMovement : MonoBehaviour
     {
         sprinting = true;
         speed = sprintSpeed;
-        camAnim.SetTrigger("Run");
+       camAnim.SetTrigger("Run");
     }
 
     public void StopSprinting()
     {
         sprinting = false;
         speed = 7f;
-        camAnim.SetTrigger("Walk");
+       // camAnim.SetTrigger("Walk");
     }
 
 
