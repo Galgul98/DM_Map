@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
 
     public int damage = 10;
     [SerializeField] int maxAmmo;
-    [SerializeField] int extraBullets = 120;
+    public int extraBullets = 30;
 
     int currentAmmo;
     [SerializeField] float reloadTime;
@@ -119,18 +119,19 @@ public class Gun : MonoBehaviour
 
     IEnumerator Reload()
     {
-        if(currentAmmo <= 0 && extraBullets >= 1)
+        if(currentAmmo >= 0 && extraBullets >= 1)
         {
-            yield return null;
+            print("reloading...");
+            yield return reloadWait;
+            currentAmmo = maxAmmo;
+            extraBullets -= 30;
+            print("finished reloading.");
+            
         }
+        yield return null;
 
-        
 
-        print("reloading...");
-        yield return reloadWait;
-        currentAmmo = maxAmmo;
-        extraBullets -= 30;
-        print("finished reloading.");
+
     }
 
    
