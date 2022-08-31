@@ -89,7 +89,7 @@ public class InputManager : MonoBehaviour
     {
         isAiming = false;
         crossHair.SetActive(true);
-        gun.GetComponent<Animator>().Play("Stop_ADS");
+        gun.GetComponent<Animator>().Play("STOP_ADS");
         if (zoomRoutine != null)
         {
             StopCoroutine(zoomRoutine);
