@@ -4,7 +4,7 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     [SerializeField] float maxHealth = 100f;
-    float currentHealth;
+    public  float currentHealth;
 
     [SerializeField] GameObject hitEffect;
 

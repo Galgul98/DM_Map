@@ -131,12 +131,13 @@ public class EnemyAi : MonoBehaviour
 
         if(!alreadyAttacked)
         {
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+           
             bloodSpllater.SetActive(true);
             CameraShaker.Instance.ShakeOnce(5f,5f,0.2f,1f);
             StartCoroutine(bloodFeedback());
             Debug.Log("attacked player");
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 

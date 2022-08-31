@@ -14,7 +14,7 @@ public class PlayerStats : CharacterStats
 
     private void Update()
     {
-        healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);    
+        healthBar.fillAmount = health / maxHealth;      
     }
 
     public override void CheckHealth()

@@ -62,7 +62,7 @@ public class CharacterStats : MonoBehaviour
 
     public virtual void InitVariables()
     {
-        maxHealth = 100;
+       
         SetHealthTo(maxHealth);
         isDead = false;
     }

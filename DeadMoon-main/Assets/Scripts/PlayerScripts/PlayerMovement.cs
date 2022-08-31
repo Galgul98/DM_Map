@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if(input.x == 0 && input.z == 0 && input.y == 0)
         {
-            Debug.Log("Check12");
+           // Debug.Log("Check12");
             camAnim.SetTrigger("Idle");
             camAnim.ResetTrigger("Walk");
             camAnim.ResetTrigger("Run");

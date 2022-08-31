@@ -47,6 +47,6 @@ public class ZombieStats : CharacterStats
 
         damage = 10;
         attackSpeed = 5f;
-        canAttack = true;
+         canAttack = true;
     }
 }
