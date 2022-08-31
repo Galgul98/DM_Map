@@ -1,32 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Gun : MonoBehaviour
 {
     Transform cam;
 
-    [SerializeField] bool rapidFire = false;
+    [Header("General Stats")]
 
-    [SerializeField] float range = 50f;
-    [SerializeField] int damage = 10;
+    [SerializeField] float range = 50f; 
     [SerializeField] float fireRate = 5f;
 
-    WaitForSeconds rapidFireWait;
-
+    public int damage = 10;
     [SerializeField] int maxAmmo;
-    int currentAmmo;
+    [SerializeField] int extraBullets = 120;
 
+    int currentAmmo;
     [SerializeField] float reloadTime;
     WaitForSeconds reloadWait;
 
     public ParticleSystem muzzleFlash;
-   
+    public Text magazineSizeText;
+    public Text maxAmmoText;
     AudioSource shootingSound;
-    
-    
+   
+    [Header("Rapid Fire")]
+    WaitForSeconds rapidFireWait;
+    [SerializeField] bool rapidFire = false;
 
-    
+    [Header("Shotgun")]
+    [SerializeField] private bool shotgun = false;
+    [SerializeField] private int bulletsPerShot = 6;
+
+
+
 
     private void Awake()
     {
@@ -37,27 +46,54 @@ public class Gun : MonoBehaviour
         currentAmmo = maxAmmo;
         
     }
+    private void Update()
+    {
+        magazineSizeText.text = currentAmmo.ToString();
+        maxAmmoText.text = extraBullets.ToString();
+    }
 
     public void Shoot()
     {
         currentAmmo--; //currentAmmo = currentAmmo -1
-        RaycastHit hit;
-        muzzleFlash.Play();
-        shootingSound.Play();
-        
-      
-        if (Physics.Raycast(cam.position, cam.forward, out hit, range))
+
+        if(shotgun)
         {
-            if (hit.collider.GetComponent<Damageable>() != null)
+            for (int i = 0; i < bulletsPerShot; i++)
             {
-                hit.collider.GetComponent<Damageable>().TakeDamage(damage, hit.point, hit.normal);
+               RaycastHit hit;
+               muzzleFlash.Play();
+               shootingSound.Play();
+        
+              if (Physics.Raycast(cam.position, cam.forward, out hit, range))
+              {
+                if (hit.collider.GetComponent<Damageable>() != null)
+                {
+                  hit.collider.GetComponent<Damageable>().TakeDamage(damage, hit.point, hit.normal);
+                }
                 
+              }
+
             }
-                
         }
+        else
+        {
+            RaycastHit hit;
+            muzzleFlash.Play();
+            shootingSound.Play();
+
+            if (Physics.Raycast(cam.position, cam.forward, out hit, range))
+            {
+                if (hit.collider.GetComponent<Damageable>() != null)
+                {
+                    hit.collider.GetComponent<Damageable>().TakeDamage(damage, hit.point, hit.normal);
+                }
+
+            }
+        }
+                
+    }
        
 
-    }
     
     public IEnumerator RapidFire()
     {
@@ -83,14 +119,17 @@ public class Gun : MonoBehaviour
 
     IEnumerator Reload()
     {
-        if(currentAmmo == maxAmmo)
+        if(currentAmmo <= 0 && extraBullets >= 1)
         {
             yield return null;
         }
 
+        
+
         print("reloading...");
         yield return reloadWait;
         currentAmmo = maxAmmo;
+        extraBullets -= 30;
         print("finished reloading.");
     }
 
@@ -100,5 +139,15 @@ public class Gun : MonoBehaviour
     {
         bool enoughAmmo = currentAmmo > 0;
         return enoughAmmo;
+      
+        
     }
+
+
+
+    
+    
+    
+
+
 }

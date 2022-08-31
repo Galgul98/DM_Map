@@ -5,8 +5,9 @@ using TMPro;
 
 public class CharacterStats : MonoBehaviour
 {
-    [SerializeField] protected int health;
-    [SerializeField] protected int maxHealth;
+    public int health;
+
+   public int maxHealth;
 
     [SerializeField] protected bool isDead;
 

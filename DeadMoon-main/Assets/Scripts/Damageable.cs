@@ -14,7 +14,7 @@ public class Damageable : MonoBehaviour
 
     }
 
-    public void TakeDamage(float damage, Vector3 hitPos, Vector3 hitNormal)
+    public void TakeDamage(int damage, Vector3 hitPos, Vector3 hitNormal)
     {
         Instantiate(hitEffect, hitPos, Quaternion.LookRotation(hitNormal));
         currentHealth -= damage;
