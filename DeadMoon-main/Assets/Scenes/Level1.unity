@@ -23718,7 +23718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &652900709610062669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24238,8 +24238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 1924296090717568012}
   look: {fileID: 1924296090717568499}
-  gun: {fileID: 652900709610062669}
-  rifleGameOject: {fileID: 652900709610062668}
+  gun: {fileID: 3678449435506472808}
+  rifleGameOject: {fileID: 2885829025596888754}
   crossHair: {fileID: 704766100}
   isAiming: 0
   canZoom: 0
@@ -24297,7 +24297,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &3228232556751624116
 MonoBehaviour:
   m_ObjectHideFlags: 0
