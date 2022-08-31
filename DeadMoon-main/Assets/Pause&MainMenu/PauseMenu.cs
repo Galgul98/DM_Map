@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject restartMenu;
+
+    PlayerStats playerStats;
 
 
     public bool isPaused;
@@ -47,11 +50,26 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        Cursor.visible = false;
         Time.timeScale = 1f;  
         isPaused = false;
 
         
     }
+
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        restartMenu.SetActive(false); 
+       
+        SceneManager.LoadSceneAsync("Level1");
+        
+        
+      
+       
+    }
+        
+            
 
     public void MainMenu()
     {

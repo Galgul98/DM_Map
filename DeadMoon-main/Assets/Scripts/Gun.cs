@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
 
     public int damage = 10;
     [SerializeField] int maxAmmo;
-    public int extraBullets = 30;
+    public int extraBullets ;
 
     int currentAmmo;
     [SerializeField] float reloadTime;

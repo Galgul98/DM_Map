@@ -10,8 +10,7 @@ public class MenuManager : MonoBehaviour
     
    // public GameObject settingsCanvas;
     public bool settingsButton;
-    public GameObject playHolder;
-    public GameObject Store;
+    
    
    
     void Start()
@@ -26,6 +25,7 @@ public class MenuManager : MonoBehaviour
 
     public void PlayButton()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Level1");
     }
 
