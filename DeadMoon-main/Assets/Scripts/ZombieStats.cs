@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ZombieStats : CharacterStats
 {
-    [SerializeField] private int damage;
+
+    public int damage;
+
     public float attackSpeed;
     public GameObject bloodSpllater;
     [SerializeField] private bool canAttack;
@@ -41,12 +43,12 @@ public class ZombieStats : CharacterStats
     }
     public override void InitVariables()
     {
-        maxHealth = 60;
+        
         SetHealthTo(maxHealth);
         isDead = false;
 
-        damage = 10;
         attackSpeed = 5f;
-         canAttack = true;
+
+        canAttack = true;
     }
 }
