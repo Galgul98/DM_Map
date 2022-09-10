@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AmmoPickup : MonoBehaviour
+public class HealthPickUp : MonoBehaviour
 {
-    [SerializeField] private Gun gun;
-    [SerializeField] int ammoPkgSize;
+    [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private int healthBuffNumber;
     // Start is called before the first frame update
     void Start()
     {
-       // gun = GetComponent<Gun>();
-
+     //   playerStats = FindObjectOfType<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -22,7 +21,8 @@ public class AmmoPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gun.extraBullets += ammoPkgSize;
+            playerStats.health += healthBuffNumber;
+            Destroy(gameObject);
         }
     }
 }
