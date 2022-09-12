@@ -31,6 +31,9 @@ public class Gun : MonoBehaviour
     WaitForSeconds rapidFireWait;
     [SerializeField] bool rapidFire = false;
 
+   // [Header("Recoil")]
+    //public ProceduralRecoil recoil;
+
     [Header("Shotgun")]
     [SerializeField] private bool shotgun = false;
     [SerializeField] private int bulletsPerShot = 6;
@@ -89,6 +92,8 @@ public class Gun : MonoBehaviour
                     hit.collider.GetComponent<Damageable>().TakeDamage(damage, hit.point, hit.normal);
 
                 }
+
+                //recoil.Recoil();
 
             }
         }
