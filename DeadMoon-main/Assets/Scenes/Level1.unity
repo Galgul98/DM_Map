@@ -30242,6 +30242,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 1e2a82c9-71b8-4369-900d-d38cff2837d0
     m_ActionName: UI/Escape[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c15e4ace-62d5-4d99-9016-3cce8be19db6
+    m_ActionName: OnFoot/Reload[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UI
@@ -30425,7 +30429,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 767243867}
   magazineSizeText: {fileID: 1724659681}
   maxAmmoText: {fileID: 855099160}
-  inaccuracyDistance: 7
+  inaccuracyDistance: 15
   rapidFire: 0
   shotgun: 1
   bulletsPerShot: 6

@@ -22,7 +22,7 @@ public class AmmoPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            gun.extraMags += ammoPkgSize;
+            gun.maxAmmo += ammoPkgSize;
         }
     }
 }
