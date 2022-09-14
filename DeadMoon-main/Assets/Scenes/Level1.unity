@@ -28348,8 +28348,9 @@ MonoBehaviour:
   range: 50
   fireRate: 5
   damage: 10
-  maxAmmo: 30
-  extraBullets: 330
+  currentAmmo: 30
+  maxAmmo: 0
+  extraMags: 3
   reloadTime: 1.5
   muzzleFlash: {fileID: 225018941}
   magazineSizeText: {fileID: 1724659681}
@@ -30417,8 +30418,9 @@ MonoBehaviour:
   range: 50
   fireRate: 7
   damage: 10
+  currentAmmo: 0
   maxAmmo: 12
-  extraBullets: 120
+  extraMags: 3
   reloadTime: 3
   muzzleFlash: {fileID: 767243867}
   magazineSizeText: {fileID: 1724659681}
@@ -31451,8 +31453,9 @@ MonoBehaviour:
   range: 50
   fireRate: 5
   damage: 10
+  currentAmmo: 0
   maxAmmo: 30
-  extraBullets: 120
+  extraMags: 3
   reloadTime: 1.5
   muzzleFlash: {fileID: 225018941}
   magazineSizeText: {fileID: 0}

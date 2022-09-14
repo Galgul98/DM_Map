@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
     public GameObject rifleGameOject;
     public GameObject crossHair;
 
+    
    
 
     //Aiming and Zoom
@@ -50,6 +51,7 @@ public class InputManager : MonoBehaviour
         onFoot.Shoot.canceled += _ => StopFiring();
         onFoot.Aim.performed += e => AimingPressed();
         onFoot.ReleaseAim.performed += e => AimingReleased();
+        onFoot.Reload.performed += ctx => gun.Reload();
 
     }
 
@@ -72,6 +74,7 @@ public class InputManager : MonoBehaviour
         }
     }
 
+  
     private void AimingPressed()
     {
         isAiming = true;

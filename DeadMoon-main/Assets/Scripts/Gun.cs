@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Gun : MonoBehaviour
 {
     Transform cam;
+    private PlayerInput palyerInput;
 
     [Header("General Stats")]
 
@@ -14,12 +15,15 @@ public class Gun : MonoBehaviour
     [SerializeField] float fireRate = 5f;
 
     public int damage = 10;
+    
+    [Header("Ammo Stats")]
+     public int currentAmmo = 30;
     [SerializeField] int maxAmmo;
-    public int extraBullets ;
-
-    int currentAmmo;
+    public int extraMags = 3;
     [SerializeField] float reloadTime;
     WaitForSeconds reloadWait;
+    private int magazineTamp;
+    private bool isReloading = false;
 
     public ParticleSystem muzzleFlash;
     public Text magazineSizeText;
@@ -47,13 +51,14 @@ public class Gun : MonoBehaviour
         cam = Camera.main.transform;
         rapidFireWait = new WaitForSeconds(0.5f / fireRate);
         reloadWait = new WaitForSeconds(reloadTime);
-        currentAmmo = maxAmmo;
+        maxAmmo = currentAmmo * extraMags;
+        magazineTamp = currentAmmo;
         
     }
     private void Update()
     {
         magazineSizeText.text = currentAmmo.ToString();
-        maxAmmoText.text = extraBullets.ToString();
+        maxAmmoText.text = extraMags.ToString();
     }
 
     public void Shoot()
@@ -124,16 +129,22 @@ public class Gun : MonoBehaviour
        
     }
 
-    IEnumerator Reload()
+     public IEnumerator Reload()
     {
-        if(currentAmmo >= 0 && extraBullets >= 1)
+        if(currentAmmo <= 0 && maxAmmo > 0 )
         {
             print("reloading...");
+            isReloading = true;
             yield return reloadWait;
-            currentAmmo = maxAmmo;
-            extraBullets -= 30;
+           maxAmmo = maxAmmo - 30 + currentAmmo;
+           currentAmmo = magazineTamp;
             print("finished reloading.");
             
+        }
+        if(maxAmmo < 0)
+        {
+            currentAmmo += maxAmmo;
+            maxAmmo = 0;
         }
         yield return null;
 
