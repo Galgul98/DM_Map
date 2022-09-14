@@ -30,6 +30,7 @@ public class InputManager : MonoBehaviour
     private Coroutine zoomRoutine;
 
     Coroutine fireCoroutine;
+   
 
 
 
@@ -51,7 +52,9 @@ public class InputManager : MonoBehaviour
         onFoot.Shoot.canceled += _ => StopFiring();
         onFoot.Aim.performed += e => AimingPressed();
         onFoot.ReleaseAim.performed += e => AimingReleased();
-        onFoot.Reload.performed += ctx => gun.Reload();
+        
+
+
 
     }
 
@@ -73,6 +76,8 @@ public class InputManager : MonoBehaviour
             StopCoroutine(fireCoroutine);
         }
     }
+
+  
 
   
     private void AimingPressed()

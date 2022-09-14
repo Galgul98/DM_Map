@@ -58,7 +58,7 @@ public class Gun : MonoBehaviour
     private void Update()
     {
         magazineSizeText.text = currentAmmo.ToString();
-        maxAmmoText.text = extraMags.ToString();
+        maxAmmoText.text = maxAmmo.ToString();
     }
 
     public void Shoot()
