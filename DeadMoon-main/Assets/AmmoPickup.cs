@@ -5,6 +5,7 @@ using UnityEngine;
 public class AmmoPickup : Interactables
 {
     [SerializeField] private Gun gun;
+    [SerializeField] private PlayerInteract playerInteract;
     [SerializeField] int ammoPkgSize;
     // Start is called before the first frame update
     void Start()
@@ -14,7 +15,7 @@ public class AmmoPickup : Interactables
     }
     protected override void Interact()
     {
-        if (CompareTag("Player"))
+        if (GetComponent<PlayerInteract>())
         {
             gun.maxAmmo += ammoPkgSize;
            
