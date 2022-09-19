@@ -23048,7 +23048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ac95937fe67664cbe4aa3eb91390e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 10000
   currentHealth: 0
   hitEffect: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
 --- !u!1 &1247879378
@@ -26107,6 +26107,7 @@ GameObject:
   - component: {fileID: 1901112117}
   - component: {fileID: 1901112116}
   - component: {fileID: 1901112115}
+  - component: {fileID: 1901112119}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -26192,6 +26193,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1901112119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901112114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ac95937fe67664cbe4aa3eb91390e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10000
+  currentHealth: 0
+  hitEffect: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
 --- !u!1 &1908960263
 GameObject:
   m_ObjectHideFlags: 0
