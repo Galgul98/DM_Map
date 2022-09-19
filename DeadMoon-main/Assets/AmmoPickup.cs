@@ -12,17 +12,22 @@ public class AmmoPickup : Interactables
        // gun = GetComponent<Gun>();
 
     }
-
-    // Update is called once per frame
-    void Update()
+    protected override void Interact()
     {
-        
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        if (CompareTag("Player"))
         {
             gun.maxAmmo += ammoPkgSize;
+           
         }
+        Destroy(gameObject);
     }
+
+   
+    //private void OnTriggerEnter(Collider other)
+    //{
+        //if (other.CompareTag("Player"))
+        //{
+       //     gun.maxAmmo += ammoPkgSize;
+     //   }
+   // }
 }
