@@ -23,7 +23,7 @@ public class Gun : MonoBehaviour
     [SerializeField] float reloadTime;
     WaitForSeconds reloadWait;
     private int magazineTamp;
-    private bool isReloading = false;
+    private bool isReloading;
 
     public ParticleSystem muzzleFlash;
     public Text magazineSizeText;
@@ -141,6 +141,17 @@ public class Gun : MonoBehaviour
             print("finished reloading.");
             
         }
+
+       // if(shotgun && currentAmmo <= 0 && maxAmmo > 0)
+       /// {
+          //  print("reloading...");
+          //  isReloading = true;
+          //  yield return reloadWait;
+          //  maxAmmo = maxAmmo - 30 + currentAmmo;
+          //  currentAmmo = magazineTamp;
+          //  print("finished reloading.");
+       // }
+
         if(maxAmmo < 0)
         {
             currentAmmo += maxAmmo;
