@@ -39,7 +39,7 @@ public class EnemyAi : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
         stats = GetComponent<ZombieStats>();
     }
 
@@ -125,7 +125,7 @@ public class EnemyAi : MonoBehaviour
         transform.LookAt(player);
         stats.DealDamage(statsToDmage);
         //Make sure enemy dosent move
-        agent.SetDestination(transform.position);
+        agent.SetDestination(player.position);
 
         
 
