@@ -8085,6 +8085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   promptMessage: 
   gun: {fileID: 652900709610062669}
+  playerInteract: {fileID: 0}
   ammoPkgSize: 30
 --- !u!65 &533310200
 BoxCollider:
@@ -14660,6 +14661,24 @@ Transform:
   m_Father: {fileID: 1310877017}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &830293060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7323752462691091270, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
+  m_PrefabInstance: {fileID: 6645690346268221636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &830293065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830293060}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07988646, y: 0.079953365, z: 0.039894428}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &836239565
 GameObject:
   m_ObjectHideFlags: 0
@@ -23067,7 +23086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27ac95937fe67664cbe4aa3eb91390e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 10000
   currentHealth: 0
   hitEffect: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
 --- !u!1 &1247879378
@@ -23507,6 +23526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   promptMessage: 
   gun: {fileID: 3678449435506472808}
+  playerInteract: {fileID: 0}
   ammoPkgSize: 12
 --- !u!65 &1379907014
 BoxCollider:
@@ -26126,6 +26146,7 @@ GameObject:
   - component: {fileID: 1901112117}
   - component: {fileID: 1901112116}
   - component: {fileID: 1901112115}
+  - component: {fileID: 1901112119}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -26211,6 +26232,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1901112119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901112114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ac95937fe67664cbe4aa3eb91390e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10000
+  currentHealth: 0
+  hitEffect: {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
 --- !u!1 &1908960263
 GameObject:
   m_ObjectHideFlags: 0
@@ -31013,7 +31049,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 767243867}
   magazineSizeText: {fileID: 1724659681}
   maxAmmoText: {fileID: 855099160}
-  inaccuracyDistance: 15
+  inaccuracyDistance: 10
   rapidFire: 0
   shotgun: 1
   bulletsPerShot: 6
@@ -32830,21 +32866,45 @@ PrefabInstance:
       propertyPath: gun
       value: 
       objectReference: {fileID: 3678449435506472808}
+    - target: {fileID: 693554412381642896, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
+      propertyPath: ammoPkgSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 693554412381642896, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
+      propertyPath: promptMessage
+      value: ' Press [E] To Pick Up Shotgun Ammo'
+      objectReference: {fileID: 0}
+    - target: {fileID: 693554412381642896, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
+      propertyPath: playerInteract
+      value: 
+      objectReference: {fileID: 5950816048218055300}
     - target: {fileID: 1543762543298902082, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1543762543298902082, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543762543298902082, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543762543298902082, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543762543298902082, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -192.47937
+      value: 10.61
       objectReference: {fileID: 0}
     - target: {fileID: 1543762543298902082, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.039976683
+      value: 0.558
       objectReference: {fileID: 0}
     - target: {fileID: 1543762543298902082, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 916.451
+      value: 30.246
       objectReference: {fileID: 0}
     - target: {fileID: 1543762543298902082, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
       propertyPath: m_LocalRotation.w
@@ -32877,6 +32937,10 @@ PrefabInstance:
     - target: {fileID: 7323752462691091270, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
       propertyPath: m_Name
       value: Shotgun-Ammo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323752462691091270, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0fe6f314d4db24c4aae4b05039585ece, type: 3}

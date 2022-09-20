@@ -8,6 +8,8 @@ public class Gun : MonoBehaviour
 {
     Transform cam;
     private PlayerInput palyerInput;
+    private InputManager inputManager;
+    
 
     [Header("General Stats")]
 
@@ -53,12 +55,26 @@ public class Gun : MonoBehaviour
         reloadWait = new WaitForSeconds(reloadTime);
         maxAmmo = currentAmmo * extraMags;
         magazineTamp = currentAmmo;
-        
+        inputManager = GetComponentInParent<InputManager>();
+
+        if (inputManager.onFoot.Reload.triggered)
+        {
+            StartCoroutine(Reload());
+            Debug.Log("reload pressed");
+
+        }
+
+
+
     }
     private void Update()
     {
         magazineSizeText.text = currentAmmo.ToString();
         maxAmmoText.text = maxAmmo.ToString();
+
+       
+
+
     }
 
     public void Shoot()
@@ -131,28 +147,28 @@ public class Gun : MonoBehaviour
 
      public IEnumerator Reload()
     {
-        if(currentAmmo <= 0 && maxAmmo > 0 )
+        //if(currentAmmo <= 0 && maxAmmo > 0 )
+        //{
+        //print("reloading...");
+        //isReloading = true;
+        // yield return reloadWait;
+        //maxAmmo = maxAmmo - 30 + currentAmmo;
+        //currentAmmo = magazineTamp;
+        //  print("finished reloading.");
+        //   
+        // }
+
+        if (shotgun && currentAmmo <= 0 && maxAmmo > 0)
         {
             print("reloading...");
             isReloading = true;
             yield return reloadWait;
-           maxAmmo = maxAmmo - 30 + currentAmmo;
-           currentAmmo = magazineTamp;
+            maxAmmo = maxAmmo - 12 + currentAmmo;
+            currentAmmo = magazineTamp;
             print("finished reloading.");
-            
         }
 
-       // if(shotgun && currentAmmo <= 0 && maxAmmo > 0)
-       /// {
-          //  print("reloading...");
-          //  isReloading = true;
-          //  yield return reloadWait;
-          //  maxAmmo = maxAmmo - 30 + currentAmmo;
-          //  currentAmmo = magazineTamp;
-          //  print("finished reloading.");
-       // }
-
-        if(maxAmmo < 0)
+        if (maxAmmo <= 0)
         {
             currentAmmo += maxAmmo;
             maxAmmo = 0;
@@ -161,7 +177,8 @@ public class Gun : MonoBehaviour
 
 
 
-    }
+
+     }
 
    
 
