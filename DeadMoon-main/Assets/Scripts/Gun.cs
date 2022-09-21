@@ -171,7 +171,7 @@ public class Gun : MonoBehaviour
         if (maxAmmo <= 0)
         {
             currentAmmo += maxAmmo;
-            maxAmmo = 0;
+           
         }
         yield return null;
 

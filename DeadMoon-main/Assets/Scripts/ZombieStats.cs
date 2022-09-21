@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombieStats : CharacterStats
 {
 
-    public int damage;
+    public float damage;
 
     public float attackSpeed;
     public GameObject bloodSpllater;
@@ -24,7 +24,7 @@ public class ZombieStats : CharacterStats
         
     }
 
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
     }
