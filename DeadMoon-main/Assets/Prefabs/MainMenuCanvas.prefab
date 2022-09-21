@@ -503,8 +503,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsButton: 0
-  playHolder: {fileID: 0}
-  Store: {fileID: 0}
 --- !u!1 &5992236905894646233
 GameObject:
   m_ObjectHideFlags: 0

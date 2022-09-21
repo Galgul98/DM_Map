@@ -6173,7 +6173,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505402222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52, y: -16.09, z: 26.87}
+  m_LocalPosition: {x: 0.52, y: -15.902, z: 26.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22003,7 +22003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1804265034
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24914,7 +24914,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960263573679714847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.61, y: 1.24, z: 28.2}
+  m_LocalPosition: {x: 10.61, y: -0.058, z: 28.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26651,63 +26651,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.12796283, y: 0.005338371, z: 0.003011927}
     m_Extent: {x: 0.11930168, y: 0.10496376, z: 0.09583151}
   m_DirtyAABB: 0
---- !u!1001 &3105142645067403991
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_RootOrder
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -65.568
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 166
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1161391592731431373, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8239367032027241084, guid: de19cd23b22767540a7d894a405db030, type: 3}
-      propertyPath: m_Name
-      value: Moon-Terrain
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: de19cd23b22767540a7d894a405db030, type: 3}
 --- !u!4 &3145465916972603020
 Transform:
   m_ObjectHideFlags: 0

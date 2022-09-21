@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 515652452424929193}
+  restartMenu: {fileID: 0}
   isPaused: 0
 --- !u!1 &515652450971533258
 GameObject:
