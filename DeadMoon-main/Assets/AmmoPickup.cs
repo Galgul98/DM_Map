@@ -13,22 +13,23 @@ public class AmmoPickup : Interactables
        // gun = GetComponent<Gun>();
 
     }
-    protected override void Interact()
+   // protected override void Interact()
+    //{
+      //  if (GetComponent<PlayerInteract>())
+        //{
+          //  gun.maxAmmo += ammoPkgSize;
+           
+        //}
+        //Destroy(gameObject);
+    //}
+
+   
+    private void OnTriggerEnter(Collider other)
     {
-        if (GetComponent<PlayerInteract>())
+        if (other.CompareTag("Player"))
         {
             gun.maxAmmo += ammoPkgSize;
-           
         }
         Destroy(gameObject);
     }
-
-   
-    //private void OnTriggerEnter(Collider other)
-    //{
-        //if (other.CompareTag("Player"))
-        //{
-       //     gun.maxAmmo += ammoPkgSize;
-     //   }
-   // }
 }

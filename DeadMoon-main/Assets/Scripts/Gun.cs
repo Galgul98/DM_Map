@@ -149,24 +149,24 @@ public class Gun : MonoBehaviour
     {
         //if(currentAmmo <= 0 && maxAmmo > 0 )
         //{
-        //print("reloading...");
-        //isReloading = true;
-        // yield return reloadWait;
-        //maxAmmo = maxAmmo - 30 + currentAmmo;
-        //currentAmmo = magazineTamp;
-        //  print("finished reloading.");
-        //   
-        // }
+         //print("reloading...");
+         //isReloading = true;
+         //yield return reloadWait;
+         //maxAmmo = maxAmmo - 30 + currentAmmo;
+         //currentAmmo = magazineTamp;
+         // print("finished reloading.");
+           
+       // }
 
-        if (shotgun && currentAmmo <= 0 && maxAmmo > 0)
-        {
+       if (shotgun && currentAmmo <= 0 && maxAmmo > 0)
+       {
             print("reloading...");
             isReloading = true;
             yield return reloadWait;
             maxAmmo = maxAmmo - 12 + currentAmmo;
             currentAmmo = magazineTamp;
             print("finished reloading.");
-        }
+       }
 
         if (maxAmmo <= 0)
         {

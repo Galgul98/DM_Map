@@ -47,7 +47,7 @@ public class ZombieStats : CharacterStats
         SetHealthTo(maxHealth);
         isDead = false;
 
-        attackSpeed = 0.5f;
+        attackSpeed = 2.2f;
 
         canAttack = true;
     }
