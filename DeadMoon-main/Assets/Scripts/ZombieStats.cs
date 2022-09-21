@@ -6,7 +6,8 @@ public class ZombieStats : CharacterStats
 {
 
     public float damage;
-
+    public float timeBetweenAttack;
+    public float timeBetweenAttack1;
     public float attackSpeed;
     public GameObject bloodSpllater;
     [SerializeField] private bool canAttack;
@@ -18,10 +19,14 @@ public class ZombieStats : CharacterStats
 
     public void DealDamage(CharacterStats statsToDamage)
     {
-        //damaging function
-        statsToDamage.TakeDamage(damage);
-       
         
+            //damaging function
+            statsToDamage.TakeDamage(damage);
+            bloodSpllater.SetActive(true);
+            // CameraShaker.Instance.ShakeOnce(5f, 5f, 0.2f, 1f);
+            StartCoroutine(bloodFeedback());
+            
+            
     }
 
     public override void TakeDamage(float damage)

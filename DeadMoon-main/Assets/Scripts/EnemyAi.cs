@@ -18,7 +18,7 @@ public class EnemyAi : MonoBehaviour
 
     //Patroling
     public Vector3 walkPoint;
-    bool walkPointSet;
+    bool walkPointSet =false;
     public float walkPointRange;
     public float patrolingSpeed = 2f;
     public float chaseSpeed = 5f;
@@ -26,7 +26,7 @@ public class EnemyAi : MonoBehaviour
     //Attacking
     private float timeOfLastAttack = 0;
     public float timeBetweenAttacks = 1.5f;
-    bool alreadyAttacked;
+    bool alreadyAttacked = false;
    
 
     //States
@@ -69,10 +69,12 @@ public class EnemyAi : MonoBehaviour
 
             timeBetweenAttacks = Time.time;
             CharacterStats playerStats = player.GetComponent<CharacterStats>();
-            AttackPlayer(playerStats);
-            agent.acceleration = 1;
-            
-
+          //  AttackPlayer(playerStats);
+            transform.LookAt(player);
+            stats.DealDamage(playerStats);
+            //Make sure enemy dosent move
+            agent.SetDestination(player.position);
+            // agent.acceleration = 1;
             
 
         }
@@ -108,11 +110,31 @@ public class EnemyAi : MonoBehaviour
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y,transform.position.z + randomZ);
-
-        if(Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+        Debug.Log("eilon");
+        StartCoroutine(CheckWalkPoint());
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
+        
     }
+    IEnumerator CheckWalkPoint()
+    {
+        Vector3 walkPointCheck = walkPoint;
+        yield return new WaitForSeconds(2f);
+        if(walkPointCheck == walkPoint)
+        {
+            float randomZ = Random.Range(-walkPointRange, walkPointRange);
+            float randomX = Random.Range(-walkPointRange, walkPointRange);
+            float randomZ1 = Random.Range(-walkPointRange, walkPointRange);
+            float randomX1 = Random.Range(-walkPointRange, walkPointRange);
 
+            walkPoint = new Vector3(transform.position.x + randomX + 15f, transform.position.y, transform.position.z + randomZ + -15f);
+            Debug.Log("Elhalal");
+        }
+        
+
+       
+
+    }
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
@@ -132,9 +154,9 @@ public class EnemyAi : MonoBehaviour
         if(!alreadyAttacked)
         {
            
-            bloodSpllater.SetActive(true);
+           // bloodSpllater.SetActive(true);
             CameraShaker.Instance.ShakeOnce(5f,5f,0.2f,1f);
-            StartCoroutine(bloodFeedback());
+           // StartCoroutine(bloodFeedback());
             Debug.Log("attacked player");
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
