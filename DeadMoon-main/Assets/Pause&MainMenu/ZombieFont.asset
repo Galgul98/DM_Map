@@ -9,7 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: LiberationSans SDF Material
   m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - OUTLINE_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
@@ -33,7 +34,7 @@ Material:
     - _MaskSoftnessX: 0
     - _MaskSoftnessY: 0
     - _OutlineSoftness: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.614
     - _PerspectiveFilter: 0.875
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 1
@@ -75,9 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: ZombieFont
   m_EditorClassIdentifier: 
-  hashCode: 231247347
+  hashCode: -1716853307
   material: {fileID: 2180264}
-  materialHashCode: 198912371
+  materialHashCode: 922696645
   m_Version: 1.1.0
   m_SourceFontFileGUID: ffe097de096db96469aabd7ec3bc6b95
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: ffe097de096db96469aabd7ec3bc6b95, type: 3}

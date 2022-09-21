@@ -111,7 +111,7 @@ public class UImanager : MonoBehaviour
     {
         if (escButton)
         {
-            inventory.SetActive(false);
+           // inventory.SetActive(false);
             PauseCanvas.SetActive(false);
 
 
